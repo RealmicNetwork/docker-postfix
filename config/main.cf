@@ -26,7 +26,7 @@ smtpd_tls_mandatory_ciphers = high
 smtp_tls_security_level = may
 
 smtpd_sasl_type = dovecot
-smtpd_sasl_path = inet:[dovecot]:12345
+smtpd_sasl_path = inet:[dovecot.default.svc.cluster.local]:12345
 smtpd_recipient_restrictions = permit_sasl_authenticated permit_mynetworks reject_unauth_destination
 
 
@@ -45,10 +45,10 @@ inet_interfaces = all
 inet_protocols = ipv4
 html_directory = /usr/share/doc/postfix/html
 
-virtual_transport = lmtp:inet:[dovecot]:24
+virtual_transport = lmtp:inet:[dovecot.default.svc.cluster.local]:24
 virtual_mailbox_domains = mysql:/etc/postfix/mysql/mysql-virtual-mailbox-domains.cf
 virtual_mailbox_maps = mysql:/etc/postfix/mysql/mysql-virtual-mailbox-maps.cf
 virtual_alias_maps = mysql:/etc/postfix/mysql/mysql-virtual-alias-maps.cf
 
-smtpd_milters = inet:[opendkim]:12345
-non_smtpd_milters = inet:[opendkim]:12345
+smtpd_milters = inet:[opendkim.default.svc.cluster.local]:12345
+non_smtpd_milters = inet:[opendkim.default.svc.cluster.local]:12345
