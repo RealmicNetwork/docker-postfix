@@ -35,6 +35,7 @@ smtpd_recipient_restrictions = permit_sasl_authenticated permit_mynetworks rejec
 
 smtpd_relay_restrictions = permit_mynetworks permit_sasl_authenticated defer_unauth_destination
 myhostname = prod.mctherealm.net
+smtp_helo_name = {{NODE_HOSTNAME}}.mctherealm.net
 myorigin = prod.mctherealm.net
 mydestination = localhost
 relayhost =
