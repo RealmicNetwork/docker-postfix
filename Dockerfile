@@ -6,6 +6,7 @@ RUN apk add --no-cache postfix postfix-mysql rsyslog \
   && rm -rf /etc/postfix/
 
 ADD config/ /etc/postfix/
+RUN chmod -R go-rwx /etc/postfix/
 
 ADD start.sh /
 RUN chmod +x /start.sh
